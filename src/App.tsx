@@ -395,67 +395,84 @@ const FAQ = () => {
 };
 
 const Booking = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = "https://assets.calendly.com/assets/external/widget.js";
+    script.async = true;
+    script.onload = () => setIsLoading(false);
+    document.body.appendChild(script);
+
+    return () => {
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
+    };
+  }, []);
+
   return (
     <section id="booking" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="bg-brand-terracotta rounded-[3rem] p-8 md:p-16 text-white grid lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 className="text-4xl md:text-5xl font-serif mb-6">Foglaljon időpontot online</h2>
-            <p className="text-white/80 mb-10 text-lg">
-              Válassza ki az Önnek megfelelő időpontot és szolgáltatást pár kattintással. Gyors, egyszerű és azonnali visszaigazolást kap.
-            </p>
-            <div className="space-y-6">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
-                  <MapPin size={24} />
-                </div>
-                <div>
-                  <p className="font-bold">Helyszín</p>
-                  <p className="text-white/70">Dabas, vagy az Ön otthona</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
-                  <Phone size={24} />
-                </div>
-                <div>
-                  <p className="font-bold">Telefon</p>
-                  <p className="text-white/70">+36 30 123 4567</p>
-                </div>
+        <div className="text-center mb-12">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-4xl md:text-5xl font-serif mb-6 text-brand-ink"
+          >
+            Foglaljon időpontot online
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-brand-ink/60 max-w-2xl mx-auto text-lg"
+          >
+            Válassza ki az Önnek megfelelő időpontot és szolgáltatást pár kattintással. Gyors, egyszerű és azonnali visszaigazolást kap.
+          </motion.p>
+        </div>
+
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
+          className="max-w-[1000px] mx-auto relative min-h-[700px]"
+        >
+          {isLoading && (
+            <div className="absolute inset-0 flex items-center justify-center bg-brand-cream/50 backdrop-blur-sm z-10 rounded-3xl">
+              <div className="flex flex-col items-center gap-4">
+                <div className="w-12 h-12 border-4 border-brand-terracotta border-t-transparent rounded-full animate-spin" />
+                <p className="text-brand-ink/60 font-medium">Naptár betöltése...</p>
               </div>
             </div>
-          </div>
+          )}
+          <div 
+            className="calendly-inline-widget" 
+            data-url="https://calendly.com/harmonymassagedabas" 
+            style={{ minWidth: '320px', height: '700px' }}
+          />
+        </motion.div>
 
-          <div className="bg-white rounded-3xl p-8 text-brand-ink shadow-2xl">
-            {/* Mock Booking Widget UI */}
-            <div className="space-y-6">
-              <div>
-                <label className="block text-sm font-bold mb-2 uppercase tracking-wider opacity-60">Szolgáltatás választása</label>
-                <select className="w-full p-4 rounded-xl border border-brand-green/10 bg-brand-cream/50 focus:outline-none focus:ring-2 focus:ring-brand-terracotta">
-                  {SERVICES.map(s => <option key={s.id}>{s.title}</option>)}
-                </select>
-              </div>
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-bold mb-2 uppercase tracking-wider opacity-60">Dátum</label>
-                  <input type="date" className="w-full p-4 rounded-xl border border-brand-green/10 bg-brand-cream/50 focus:outline-none focus:ring-2 focus:ring-brand-terracotta" />
-                </div>
-                <div>
-                  <label className="block text-sm font-bold mb-2 uppercase tracking-wider opacity-60">Időpont</label>
-                  <select className="w-full p-4 rounded-xl border border-brand-green/10 bg-brand-cream/50 focus:outline-none focus:ring-2 focus:ring-brand-terracotta">
-                    <option>09:00</option>
-                    <option>10:30</option>
-                    <option>13:00</option>
-                    <option>14:30</option>
-                  </select>
-                </div>
-              </div>
-              <button className="w-full bg-brand-green text-white py-5 rounded-2xl font-bold text-lg hover:bg-brand-green/90 transition-all shadow-lg">
-                Foglalás véglegesítése
-              </button>
-              <p className="text-center text-xs text-brand-ink/40">
-                A foglalással elfogadja az Adatkezelési Tájékoztatót.
-              </p>
+        <div className="mt-12 grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+          <div className="flex items-center gap-4 p-6 bg-brand-cream rounded-2xl">
+            <div className="w-12 h-12 rounded-full bg-brand-terracotta/10 text-brand-terracotta flex items-center justify-center shrink-0">
+              <MapPin size={24} />
+            </div>
+            <div>
+              <p className="font-bold text-brand-ink">Helyszín</p>
+              <p className="text-brand-ink/70">Dabas, vagy az Ön otthona</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-4 p-6 bg-brand-cream rounded-2xl">
+            <div className="w-12 h-12 rounded-full bg-brand-terracotta/10 text-brand-terracotta flex items-center justify-center shrink-0">
+              <Phone size={24} />
+            </div>
+            <div>
+              <p className="font-bold text-brand-ink">Telefon</p>
+              <p className="text-brand-ink/70">+36 30 123 4567</p>
             </div>
           </div>
         </div>
