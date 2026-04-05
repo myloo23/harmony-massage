@@ -1,8 +1,8 @@
 export const SERVICES = [
   {
     id: 'prevention',
-    title: 'Prevenciós masszázs',
-    description: 'Megelőző jellegű kezelés a mindennapi feszültség oldására és a sérülések elkerülésére.',
+    title: 'Hátfájás kezelés és prevenció',
+    description: 'Hatékony hátfájás kezelés Dabason, megelőző jellegű terápia a mindennapi feszültség oldására és a sérülések elkerülésére.',
   },
   {
     id: 'swedish',
@@ -12,7 +12,7 @@ export const SERVICES = [
   {
     id: 'sports',
     title: 'Sportmasszázs',
-    description: 'Mélyszöveti kezelés sportolóknak vagy aktív életmódot élőknek a regeneráció gyorsítására.',
+    description: 'Mélyszöveti kezelés sportolóknak vagy aktív életmódot élőknek a regeneráció gyorsítására Dabason és vonzáskörzetében.',
   },
   {
     id: 'honey',
@@ -64,5 +64,23 @@ export const FAQS = [
   {
     question: 'Kombinálhatom a különböző technikákat?',
     answer: 'Természetesen! Sőt, kifejezetten ajánlom. Ön az időtartamot fizeti (30, 60 vagy 90 perc), ezen belül pedig az Ön aktuális állapotához és igényeihez igazítva kombináljuk a technikákat (pl. svédmasszázs köpöllyel vagy fascia terápiával).',
+  },
+];
+
+export const TESTIMONIALS = [
+  {
+    name: 'Kovács Péter',
+    text: 'A hátfájásom hetek óta megkeserítette a mindennapjaimat. Levente már az első alkalommal megtalálta a probléma forrását. Profi szakember, csak ajánlani tudom!',
+    rating: 5,
+  },
+  {
+    name: 'Szabó Éva',
+    text: 'Rendszeresen járok sportmasszázsra a futóedzéseim után. Mióta Leventéhez járok, sokkal gyorsabb a regenerációm és elkerülnek a sérülések. Köszönöm!',
+    rating: 5,
+  },
+  {
+    name: 'Tóth Gábor',
+    text: 'Az irodai munka miatt teljesen be volt állva a nyakam. Két alkalom után mintha kicseréltek volna. Végre fájdalommentesen tudok dolgozni.',
+    rating: 5,
   },
 ];
