@@ -1,8 +1,8 @@
 export const SITE_CONFIG = {
   brandName: "Harmony Massage",
   city: "Dabas",
-  phoneDisplay: "+36 20 112 2211",
-  phoneHref: "tel:+36201122211",
+  phoneDisplay: "+36 70 512 8878",
+  phoneHref: "tel:+36705128878",
   email: "harmonymassagedabas@gmail.com",
   emailHref: "mailto:harmonymassagedabas@gmail.com",
   instagramUrl: "https://www.instagram.com/harmonymassagedabas/",
@@ -22,10 +22,9 @@ export const SITE_CONFIG = {
     "Gyors kapcsolatfelvétel",
   ],
   proofStats: [
-    { label: "Szakmai tapasztalat", value: "16+ év" },
-    { label: "Kezelt vendégek", value: "500+" },
+    { label: "Szakmai tapasztalat", value: "2+ év" },
+    { label: "Kezelt vendégek", value: "20+" },
     { label: "Háznál is elérhető", value: "Igen" },
     { label: "Átlagos válaszidő", value: "1 órán belül" },
   ],
 };
-

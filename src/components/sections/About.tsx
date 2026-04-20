@@ -42,13 +42,13 @@ export const About = () => {
 
           <div className="grid grid-cols-2 gap-6 pt-6 border-t border-brand-ink/10 mt-7">
             <div className="flex flex-col gap-1">
-              <span className="text-3xl font-serif font-bold text-brand-green">16+ év</span>
+              <span className="text-3xl font-serif font-bold text-brand-green">2+ év</span>
               <span className="text-xs uppercase tracking-widest font-bold opacity-60">
                 Szakmai tapasztalat
               </span>
             </div>
             <div className="flex flex-col gap-1">
-              <span className="text-3xl font-serif font-bold text-brand-green">500+</span>
+              <span className="text-3xl font-serif font-bold text-brand-green">20+</span>
               <span className="text-xs uppercase tracking-widest font-bold opacity-60">
                 Kezelt vendég
               </span>
@@ -59,5 +59,4 @@ export const About = () => {
     </section>
   );
 };
-
 
