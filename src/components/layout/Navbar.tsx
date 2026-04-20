@@ -1,6 +1,5 @@
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence, useReducedMotion } from "motion/react";
-import { Menu, X, Phone } from "lucide-react";
+import { useEffect, useState } from "react";
+import { IconClose, IconMenu, IconPhone } from "../icons/UiIcons";
 import { cn } from "../../lib/utils";
 import { SITE_CONFIG } from "../../siteConfig";
 
@@ -8,17 +7,31 @@ export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showMobileStickyCTA, setShowMobileStickyCTA] = useState(false);
-  const prefersReducedMotion = useReducedMotion();
 
   useEffect(() => {
-    const handleScroll = () => {
+    let ticking = false;
+
+    const update = () => {
       const scrollY = window.scrollY;
-      setIsScrolled(scrollY > 30);
-      setShowMobileStickyCTA(scrollY > 240);
+      const nextScrolled = scrollY > 30;
+      const nextSticky = scrollY > 240;
+
+      setIsScrolled((prev) => (prev === nextScrolled ? prev : nextScrolled));
+      setShowMobileStickyCTA((prev) => (prev === nextSticky ? prev : nextSticky));
+      ticking = false;
     };
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    const onScroll = () => {
+      if (ticking) {
+        return;
+      }
+      ticking = true;
+      window.requestAnimationFrame(update);
+    };
+
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   const navLinks = [
@@ -32,26 +45,24 @@ export const Navbar = () => {
     <>
       <nav
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 py-4",
-          isScrolled
-            ? "bg-brand-cream/95 backdrop-blur-md shadow-sm py-3"
-            : "bg-transparent",
+          "fixed top-0 left-0 right-0 z-50 px-6 py-4 transition-all duration-300",
+          isScrolled ? "bg-brand-cream/95 py-3 shadow-sm backdrop-blur-md" : "bg-transparent",
         )}
       >
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
+        <div className="mx-auto flex max-w-7xl items-center justify-between">
           <a
             href="/"
-            className="font-serif text-2xl font-bold text-brand-green tracking-tight"
+            className="font-serif text-2xl font-bold tracking-tight text-brand-green"
           >
             Harmony<span className="text-brand-terracotta">Massage</span>
           </a>
 
-          <div className="hidden md:flex items-center gap-7">
+          <div className="hidden items-center gap-7 md:flex">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-sm font-medium text-brand-ink hover:text-brand-terracotta transition-colors"
+                className="text-sm font-medium text-brand-ink transition-colors hover:text-brand-terracotta"
               >
                 {link.name}
               </a>
@@ -59,94 +70,91 @@ export const Navbar = () => {
 
             <a
               href={SITE_CONFIG.phoneHref}
-              className="inline-flex items-center gap-2 text-sm font-semibold text-brand-green hover:text-brand-terracotta transition-colors"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-brand-green transition-colors hover:text-brand-terracotta"
             >
-              <Phone size={16} />
+              <IconPhone size={16} />
               {SITE_CONFIG.phoneDisplay}
             </a>
 
             <a
               href="#booking"
-              className="bg-brand-green text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-brand-green/90 transition-all shadow-md hover:shadow-lg"
+              className="rounded-full bg-brand-green px-6 py-2.5 text-sm font-semibold text-white shadow-md transition-all hover:bg-brand-green/90 hover:shadow-lg"
             >
               Online foglalás
             </a>
           </div>
 
           <button
-            className="md:hidden text-brand-green p-2 -m-2"
+            className="-m-2 p-2 text-brand-green md:hidden"
             onClick={() => setIsMobileMenuOpen((prev) => !prev)}
             aria-label={isMobileMenuOpen ? "Menü bezárása" : "Menü megnyitása"}
             aria-expanded={isMobileMenuOpen}
           >
-            {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            {isMobileMenuOpen ? <IconClose size={28} /> : <IconMenu size={28} />}
           </button>
         </div>
 
-        <AnimatePresence>
-          {isMobileMenuOpen && (
-            <motion.div
-              initial={prefersReducedMotion ? false : { opacity: 0, y: -20 }}
-              animate={prefersReducedMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
-              exit={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, y: -20 }}
-              className="absolute top-full left-0 right-0 bg-brand-cream border-t border-brand-green/10 shadow-xl p-6 flex flex-col gap-4 md:hidden"
-            >
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-lg font-medium text-brand-ink py-2 border-b border-brand-green/5"
-                >
-                  {link.name}
-                </a>
-              ))}
-              <a
-                href={SITE_CONFIG.phoneHref}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="text-center py-3 rounded-xl font-bold border border-brand-green/20"
-              >
-                Hívás: {SITE_CONFIG.phoneDisplay}
-              </a>
-              <a
-                href="#booking"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="bg-brand-terracotta text-white text-center py-4 rounded-xl font-bold"
-              >
-                Online foglalás
-              </a>
-            </motion.div>
+        <div
+          className={cn(
+            "absolute top-full left-0 right-0 origin-top border-t border-brand-green/10 bg-brand-cream p-6 shadow-xl transition-all duration-200 md:hidden",
+            isMobileMenuOpen
+              ? "pointer-events-auto visible translate-y-0 opacity-100"
+              : "pointer-events-none invisible -translate-y-2 opacity-0",
           )}
-        </AnimatePresence>
+        >
+          <div className="flex flex-col gap-4">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="border-b border-brand-green/5 py-2 text-lg font-medium text-brand-ink"
+              >
+                {link.name}
+              </a>
+            ))}
+            <a
+              href={SITE_CONFIG.phoneHref}
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="rounded-xl border border-brand-green/20 py-3 text-center font-bold"
+            >
+              Hívás: {SITE_CONFIG.phoneDisplay}
+            </a>
+            <a
+              href="#booking"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="rounded-xl bg-brand-terracotta py-4 text-center font-bold text-white"
+            >
+              Online foglalás
+            </a>
+          </div>
+        </div>
       </nav>
 
-      <AnimatePresence>
-        {showMobileStickyCTA && (
-          <motion.div
-            initial={prefersReducedMotion ? false : { opacity: 0, y: 50 }}
-            animate={prefersReducedMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
-            exit={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, y: 50 }}
-            className="fixed bottom-0 left-0 right-0 z-40 p-4 md:hidden bg-linear-to-t from-brand-cream via-brand-cream/95 to-transparent pb-[calc(1rem+env(safe-area-inset-bottom))]"
-          >
-            <div className="grid grid-cols-2 gap-3 max-w-md mx-auto">
-              <a
-                href={SITE_CONFIG.phoneHref}
-                className="block w-full border border-brand-green/20 bg-white text-brand-green text-center py-3 rounded-full font-semibold shadow-sm"
-              >
-                Hívás most
-              </a>
-              <a
-                href="#booking"
-                className="block w-full bg-brand-terracotta text-white text-center py-3 rounded-full font-bold shadow-lg shadow-brand-terracotta/25"
-              >
-                Online foglalás
-              </a>
-            </div>
-          </motion.div>
+      <div
+        className={cn(
+          "fixed bottom-0 left-0 right-0 z-40 bg-linear-to-t from-brand-cream via-brand-cream/95 to-transparent p-4 pb-[calc(1rem+env(safe-area-inset-bottom))] transition-all duration-200 md:hidden",
+          showMobileStickyCTA
+            ? "pointer-events-auto visible translate-y-0 opacity-100"
+            : "pointer-events-none invisible translate-y-6 opacity-0",
         )}
-      </AnimatePresence>
+      >
+        <div className="mx-auto grid max-w-md grid-cols-2 gap-3">
+          <a
+            href={SITE_CONFIG.phoneHref}
+            className="block w-full rounded-full border border-brand-green/20 bg-white py-3 text-center font-semibold text-brand-green shadow-sm"
+          >
+            Hívás most
+          </a>
+          <a
+            href="#booking"
+            className="block w-full rounded-full bg-brand-terracotta py-3 text-center font-bold text-white shadow-lg shadow-brand-terracotta/25"
+          >
+            Online foglalás
+          </a>
+        </div>
+      </div>
     </>
   );
 };
-
 

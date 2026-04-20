@@ -1,23 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@100..900&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-serif: "Playfair Display", serif;
-  --font-sans: "Inter", sans-serif;
+  --font-serif: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
 
-  --color-brand-cream: #FDFBF7;
-  --color-brand-terracotta: #C06C4D;
-  --color-brand-green: #3E4E3E;
-  --color-brand-brown: #8B5E3C;
-  --color-brand-ink: #2D2D2D;
+  --color-brand-cream: #fdfbf7;
+  --color-brand-terracotta: #c06c4d;
+  --color-brand-green: #3e4e3e;
+  --color-brand-brown: #8b5e3c;
+  --color-brand-ink: #2d2d2d;
 }
 
 @layer base {
   body {
     @apply bg-brand-cream text-brand-ink font-sans antialiased;
   }
-  
-  h1, h2, h3, h4 {
+
+  h1,
+  h2,
+  h3,
+  h4 {
     @apply font-serif;
   }
 
@@ -30,6 +32,17 @@
   button:focus-visible {
     @apply ring-2 ring-brand-terracotta ring-offset-2 ring-offset-brand-cream rounded-md;
   }
+
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+main > section:not(:first-child) {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 900px;
 }
 
 @media (max-width: 767px) {

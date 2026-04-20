@@ -1,4 +1,5 @@
-import aboutImg from "../../assets/leventegyimesi.jpeg";
+import aboutImg600 from "../../assets/optimized/about-600.jpg";
+import aboutImg1200 from "../../assets/optimized/about-1200.jpg";
 
 export const About = () => {
   return (
@@ -7,11 +8,15 @@ export const About = () => {
         <div className="relative">
           <div className="aspect-square rounded-[3rem] overflow-hidden shadow-2xl relative z-10">
             <img
-              src={aboutImg}
+              src={aboutImg1200}
+              srcSet={`${aboutImg600} 600w, ${aboutImg1200} 1200w`}
+              sizes="(max-width: 768px) 92vw, 46vw"
               alt="Gyimesi Levente masszázsterapeuta kezelést végez Dabason"
               className="w-full h-full object-cover object-center"
               loading="lazy"
               decoding="async"
+              width={1200}
+              height={1600}
             />
           </div>
           <div className="absolute -bottom-8 -right-8 w-48 h-48 bg-brand-terracotta rounded-full -z-10 opacity-20 blur-2xl" />
@@ -59,4 +64,3 @@ export const About = () => {
     </section>
   );
 };
-

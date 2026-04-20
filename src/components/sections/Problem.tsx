@@ -1,9 +1,6 @@
-import { motion, useReducedMotion } from "motion/react";
 import { Clock, HeartPulse, Sparkles } from "lucide-react";
 
 export const Problem = () => {
-  const prefersReducedMotion = useReducedMotion();
-
   return (
     <section className="py-20 bg-brand-cream/50">
       <div className="max-w-4xl mx-auto px-6 text-center">
@@ -25,20 +22,14 @@ export const Problem = () => {
               q: "Szeretne végre fájdalom nélkül mozogni és nyugodtabban pihenni?",
               icon: <Sparkles className="text-brand-terracotta" />,
             },
-          ].map((item, i) => (
-            <motion.article
+          ].map((item) => (
+            <article
               key={item.q}
-              initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
-              whileInView={
-                prefersReducedMotion ? { opacity: 1 } : { opacity: 1, y: 0 }
-              }
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.15 }}
               className="p-6 rounded-2xl bg-white shadow-sm border border-brand-green/5"
             >
               <div className="mb-4 flex justify-center">{item.icon}</div>
               <p className="text-brand-ink font-medium leading-relaxed">{item.q}</p>
-            </motion.article>
+            </article>
           ))}
         </div>
 
@@ -50,5 +41,3 @@ export const Problem = () => {
     </section>
   );
 };
-
-

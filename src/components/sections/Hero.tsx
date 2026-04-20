@@ -1,108 +1,101 @@
-import { motion, useReducedMotion } from "motion/react";
-import { ArrowRight, PhoneCall, CheckCircle2 } from "lucide-react";
-import heroImg from "../../assets/hatmasszazs.jpeg";
+import { IconArrowRight, IconCheckCircle, IconPhone } from "../icons/UiIcons";
+import heroImg720 from "../../assets/optimized/hero-720.jpg";
+import heroImg1080 from "../../assets/optimized/hero-1080.jpg";
 import { SITE_CONFIG } from "../../siteConfig";
 
 export const Hero = () => {
-  const prefersReducedMotion = useReducedMotion();
-
   return (
     <section className="relative overflow-hidden pt-24 pb-14">
-      <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-brand-terracotta/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] bg-brand-green/5 rounded-full blur-3xl" />
+      <div className="absolute top-[-10%] right-[-10%] h-[50%] w-[50%] rounded-full bg-brand-terracotta/5 blur-3xl" />
+      <div className="absolute bottom-[-10%] left-[-10%] h-[40%] w-[40%] rounded-full bg-brand-green/5 blur-3xl" />
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="grid md:grid-cols-2 gap-10 items-center min-h-[calc(100svh-8rem)]">
-          <motion.div
-            initial={prefersReducedMotion ? false : { opacity: 0, x: -30 }}
-            animate={prefersReducedMotion ? { opacity: 1 } : { opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="inline-flex items-center gap-2 bg-brand-terracotta/10 text-brand-terracotta px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-6">
-              <CheckCircle2 size={14} />
+      <div className="relative z-10 mx-auto max-w-7xl px-6">
+        <div className="grid min-h-[calc(100svh-8rem)] items-center gap-10 md:grid-cols-2">
+          <div>
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-brand-terracotta/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-brand-terracotta">
+              <IconCheckCircle size={14} />
               <span>Masszázs Dabas és környékén</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif leading-[1.1] mb-6 text-brand-ink">
+            <h1 className="mb-6 font-serif text-4xl leading-[1.1] text-brand-ink sm:text-5xl md:text-6xl">
               Hát- és nyakfájás kezelése Dabason - érezhető javulás már az első
               alkalom után
             </h1>
 
-            <p className="text-lg text-brand-ink/70 mb-9 max-w-xl leading-relaxed">
+            <p className="mb-9 max-w-xl text-lg leading-relaxed text-brand-ink/70">
               Sport- és gyógymasszázs személyre szabva, 30-60-90 perces
               kezelésekkel. Online időpontfoglalás, gyors visszaigazolás.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 mb-8">
+            <div className="mb-8 flex flex-col gap-4 sm:flex-row">
               <a
                 href="#booking"
-                className="bg-brand-terracotta text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg shadow-brand-terracotta/20 hover:scale-[1.02] transition-transform flex items-center justify-center gap-2"
+                className="flex items-center justify-center gap-2 rounded-full bg-brand-terracotta px-8 py-4 text-lg font-bold text-white shadow-lg shadow-brand-terracotta/20 transition-transform hover:scale-[1.02]"
               >
-                Szabad időpontok megtekintése <ArrowRight size={20} />
+                Szabad időpontok megtekintése <IconArrowRight size={20} />
               </a>
               <a
                 href={SITE_CONFIG.phoneHref}
-                className="border-2 border-brand-green/20 text-brand-green px-8 py-4 rounded-full font-bold text-lg hover:bg-brand-green/5 transition-colors flex items-center justify-center gap-2"
+                className="flex items-center justify-center gap-2 rounded-full border-2 border-brand-green/20 px-8 py-4 text-lg font-bold text-brand-green transition-colors hover:bg-brand-green/5"
               >
-                <PhoneCall size={20} />
+                <IconPhone size={20} />
                 Azonnali hívás
               </a>
             </div>
 
-            <div className="grid sm:grid-cols-2 gap-3">
+            <div className="grid gap-3 sm:grid-cols-2">
               {SITE_CONFIG.trustPoints.map((point) => (
                 <p
                   key={point}
-                  className="text-sm font-medium text-brand-ink/75 flex items-center gap-2"
+                  className="flex items-center gap-2 text-sm font-medium text-brand-ink/75"
                 >
-                  <CheckCircle2 size={16} className="text-brand-terracotta shrink-0" />
+                  <IconCheckCircle size={16} className="shrink-0 text-brand-terracotta" />
                   {point}
                 </p>
               ))}
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={prefersReducedMotion ? false : { opacity: 0, scale: 0.95 }}
-            animate={prefersReducedMotion ? { opacity: 1 } : { opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-            className="relative"
-          >
-            <div className="aspect-4/5 rounded-4xl overflow-hidden shadow-2xl relative z-10">
+          <div className="relative">
+            <div className="relative z-10 aspect-4/5 overflow-hidden rounded-4xl shadow-2xl">
               <img
-                src={heroImg}
+                src={heroImg1080}
+                srcSet={`${heroImg720} 720w, ${heroImg1080} 1080w`}
+                sizes="(max-width: 768px) 92vw, 45vw"
                 alt="Gyógymasszázs kezelés Dabason a Harmony Massage kezelőjében"
-                className="w-full h-full object-cover object-top"
+                className="h-full w-full object-cover object-top"
                 loading="eager"
                 fetchPriority="high"
                 decoding="async"
+                width={1080}
+                height={1593}
               />
               <div className="absolute inset-0 bg-linear-to-t from-brand-ink/45 to-transparent" />
             </div>
 
-            <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl z-20 max-w-[230px]">
-              <p className="text-xs text-brand-ink/60 uppercase tracking-wider mb-1">
+            <div className="absolute -bottom-6 -left-6 z-20 max-w-[230px] rounded-2xl bg-white p-6 shadow-xl">
+              <p className="mb-1 text-xs uppercase tracking-wider text-brand-ink/60">
                 Gyors kapcsolat
               </p>
               <a
                 href={SITE_CONFIG.phoneHref}
-                className="font-bold text-brand-green hover:text-brand-terracotta transition-colors"
+                className="font-bold text-brand-green transition-colors hover:text-brand-terracotta"
               >
                 {SITE_CONFIG.phoneDisplay}
               </a>
-              <p className="text-xs text-brand-ink/70 mt-2">
+              <p className="mt-2 text-xs text-brand-ink/70">
                 Hívjon most, ha gyors időpontot szeretne.
               </p>
             </div>
-          </motion.div>
+          </div>
         </div>
 
         <div className="mt-10">
-          <div className="rounded-2xl border border-brand-green/10 bg-white/90 backdrop-blur-sm p-4 md:p-5 grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 gap-4 rounded-2xl border border-brand-green/10 bg-white/90 p-4 backdrop-blur-sm md:grid-cols-4 md:p-5">
             {SITE_CONFIG.proofStats.map((item) => (
               <div key={item.label} className="text-center">
-                <p className="text-xl md:text-2xl font-serif text-brand-green">{item.value}</p>
-                <p className="text-xs uppercase tracking-wider text-brand-ink/65 mt-1">
+                <p className="text-xl font-serif text-brand-green md:text-2xl">{item.value}</p>
+                <p className="mt-1 text-xs uppercase tracking-wider text-brand-ink/65">
                   {item.label}
                 </p>
               </div>
@@ -113,5 +106,4 @@ export const Hero = () => {
     </section>
   );
 };
-
 
