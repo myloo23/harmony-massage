@@ -1,20 +1,31 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Harmony Massage Website (Vite + React)
 
-# Run and deploy your AI Studio app
+Egy modern, mobilbarát, konverzióra optimalizált egyoldalas weboldal a Harmony Massage (Dabas) számára.
 
-This contains everything you need to run your app locally.
+## Fejlesztői futtatás
 
-View your app in AI Studio: https://ai.studio/apps/5571cd16-e780-4cd9-9257-1d8d36f8f501
+1. Függőségek telepítése:
+   ```bash
+   npm install
+   ```
+2. Fejlesztői szerver indítása:
+   ```bash
+   npm run dev
+   ```
+3. Production build:
+   ```bash
+   npm run build
+   ```
 
-## Run Locally
+## Főbb oldalelemek
 
-**Prerequisites:**  Node.js
+- Hero + bizalmi/proof blokk
+- Szolgáltatások
+- Árak
+- Vendégvélemények
+- Bemutatkozás
+- Online foglalás (Calendly lazy betöltéssel)
+- GYIK
+- Adatvédelmi tájékoztató (`/privacy-policy.html`)
+- ÁSZF (`/terms.html`)
 
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`

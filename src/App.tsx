@@ -1,4 +1,3 @@
-import React from "react";
 import { Navbar } from "./components/layout/Navbar";
 import { Footer } from "./components/layout/Footer";
 import { Hero } from "./components/sections/Hero";
@@ -9,6 +8,7 @@ import { Testimonials } from "./components/sections/Testimonials";
 import { About } from "./components/sections/About";
 import { FAQ } from "./components/sections/FAQ";
 import { Booking } from "./components/sections/Booking";
+import { Trust } from "./components/sections/Trust";
 
 export default function App() {
   return (
@@ -17,6 +17,7 @@ export default function App() {
       <main>
         <Hero />
         <Problem />
+        <Trust />
         <Services />
         <Pricing />
         <Testimonials />
@@ -28,3 +29,4 @@ export default function App() {
     </div>
   );
 }
+
