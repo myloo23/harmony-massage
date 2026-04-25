@@ -70,6 +70,7 @@ export const Navbar = () => {
 
             <a
               href={SITE_CONFIG.phoneHref}
+              aria-label="Telefonos kapcsolat"
               className="inline-flex items-center gap-2 text-sm font-semibold text-brand-green transition-colors hover:text-brand-terracotta"
             >
               <IconPhone size={16} />
@@ -116,6 +117,7 @@ export const Navbar = () => {
             <a
               href={SITE_CONFIG.phoneHref}
               onClick={() => setIsMobileMenuOpen(false)}
+              aria-label="Telefonszám hívása mobilról"
               className="rounded-xl border border-brand-green/20 py-3 text-center font-bold"
             >
               Hívás: {SITE_CONFIG.phoneDisplay}
@@ -142,6 +144,7 @@ export const Navbar = () => {
         <div className="mx-auto grid max-w-md grid-cols-2 gap-3">
           <a
             href={SITE_CONFIG.phoneHref}
+            aria-label="Hívás most"
             className="block w-full rounded-full border border-brand-green/20 bg-white py-3 text-center font-semibold text-brand-green shadow-sm"
           >
             Hívás most

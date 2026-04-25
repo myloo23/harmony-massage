@@ -10,7 +10,7 @@ export const Footer = () => {
             <a href="/" className="font-serif text-3xl font-bold tracking-tight mb-5 block">
               Harmony<span className="text-brand-terracotta">Massage</span>
             </a>
-            <p className="text-white/85 max-w-md mb-8 leading-relaxed">
+            <p className="text-white max-w-md mb-8 leading-relaxed">
               Professzionális sport- és gyógymasszázs Dabason. Célzott
               kezelések hát-, nyak- és vállfájdalmakra, személyes figyelemmel.
             </p>
@@ -40,10 +40,10 @@ export const Footer = () => {
           </div>
 
           <div>
-            <h2 className="font-bold mb-6 uppercase tracking-widest text-sm text-white/75">
+            <h2 className="font-bold mb-6 uppercase tracking-widest text-sm text-white">
               Gyors navigáció
             </h2>
-            <ul className="space-y-3 text-white/85">
+            <ul className="space-y-3 text-white">
               <li>
                 <a href="#services" className="hover:text-brand-terracotta transition-colors">
                   Szolgáltatások
@@ -68,23 +68,23 @@ export const Footer = () => {
           </div>
 
           <div>
-            <h2 className="font-bold mb-6 uppercase tracking-widest text-sm text-white/75">
+            <h2 className="font-bold mb-6 uppercase tracking-widest text-sm text-white">
               Kapcsolat
             </h2>
-            <ul className="space-y-4 text-white/85">
+            <ul className="space-y-4 text-white">
               <li className="flex items-start gap-3">
                 <MapPin size={18} className="text-brand-terracotta shrink-0 mt-0.5" />
                 <span>{SITE_CONFIG.addressLabel}</span>
               </li>
               <li className="flex items-start gap-3">
                 <Phone size={18} className="text-brand-terracotta shrink-0 mt-0.5" />
-                <a href={SITE_CONFIG.phoneHref} className="hover:text-brand-terracotta">
+                <a href={SITE_CONFIG.phoneHref} aria-label="Telefonszám hívása" className="hover:text-brand-terracotta">
                   {SITE_CONFIG.phoneDisplay}
                 </a>
               </li>
               <li className="flex items-start gap-3">
                 <Mail size={18} className="text-brand-terracotta shrink-0 mt-0.5" />
-                <a href={SITE_CONFIG.emailHref} className="hover:text-brand-terracotta break-all">
+                <a href={SITE_CONFIG.emailHref} aria-label="E-mail küldése" className="hover:text-brand-terracotta break-all">
                   {SITE_CONFIG.email}
                 </a>
               </li>
@@ -92,7 +92,7 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/70">
+        <div className="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/90">
           <p>
             © {new Date().getFullYear()} Harmony Massage Dabas. Minden jog fenntartva.
           </p>

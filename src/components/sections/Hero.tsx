@@ -12,14 +12,15 @@ export const Hero = () => {
       <div className="relative z-10 mx-auto max-w-7xl px-6">
         <div className="grid min-h-[calc(100svh-8rem)] items-center gap-10 md:grid-cols-2">
           <div>
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-brand-terracotta/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-brand-terracotta">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-brand-terracotta/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-brand-ink">
               <IconCheckCircle size={14} />
               <span>Masszázs Dabas és környékén</span>
             </div>
 
-            <h1 className="mb-6 font-serif text-4xl leading-[1.1] text-brand-ink sm:text-5xl md:text-6xl">
-              Hát- és nyakfájás kezelése Dabason - érezhető javulás már az első
-              alkalom után
+            <h1 className="mb-6 font-serif text-4xl leading-[1.15] text-brand-ink sm:text-5xl md:text-6xl">
+              Hát- és nyakfájás kezelése Dabason –{" "}
+              <span className="text-brand-terracotta italic">érezhető javulás</span>{" "}
+              már az <span className="text-brand-terracotta">első alkalom</span> után
             </h1>
 
             <p className="mb-9 max-w-xl text-lg leading-relaxed text-brand-ink/70">
@@ -30,13 +31,14 @@ export const Hero = () => {
             <div className="mb-8 flex flex-col gap-4 sm:flex-row">
               <a
                 href="#booking"
-                className="flex items-center justify-center gap-2 rounded-full bg-brand-terracotta px-8 py-4 text-lg font-bold text-white shadow-lg shadow-brand-terracotta/20 transition-transform hover:scale-[1.02]"
+                className="flex items-center justify-center gap-2 rounded-full bg-brand-terracotta px-8 py-4 text-lg md:px-6 md:py-3 md:text-base font-bold text-white shadow-lg shadow-brand-terracotta/20 transition-transform hover:scale-[1.02]"
               >
                 Szabad időpontok megtekintése <IconArrowRight size={20} />
               </a>
               <a
                 href={SITE_CONFIG.phoneHref}
-                className="flex items-center justify-center gap-2 rounded-full border-2 border-brand-green/20 px-8 py-4 text-lg font-bold text-brand-green transition-colors hover:bg-brand-green/5"
+                aria-label="Azonnali hívás indítása"
+                className="flex items-center justify-center gap-2 rounded-full border-2 border-brand-green/20 px-8 py-4 text-lg md:px-6 md:py-3 md:text-base font-bold text-brand-green transition-colors hover:bg-brand-green/5"
               >
                 <IconPhone size={20} />
                 Azonnali hívás
@@ -74,11 +76,12 @@ export const Hero = () => {
             </div>
 
             <div className="absolute -bottom-6 -left-6 z-20 max-w-[230px] rounded-2xl bg-white p-6 shadow-xl">
-              <p className="mb-1 text-xs uppercase tracking-wider text-brand-ink/60">
+              <p className="mb-1 text-xs uppercase tracking-wider text-brand-ink/80">
                 Gyors kapcsolat
               </p>
               <a
                 href={SITE_CONFIG.phoneHref}
+                aria-label="Telefonos kapcsolat"
                 className="font-bold text-brand-green transition-colors hover:text-brand-terracotta"
               >
                 {SITE_CONFIG.phoneDisplay}

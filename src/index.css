@@ -38,6 +38,10 @@
     max-width: 100%;
     height: auto;
   }
+
+  section[id] {
+    scroll-margin-top: 5.5rem;
+  }
 }
 
 main > section:not(:first-child) {
