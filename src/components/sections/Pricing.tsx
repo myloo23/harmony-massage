@@ -24,11 +24,11 @@ export const Pricing = () => {
               </p>
               <div className="space-y-4 mb-8">
                 <div className="flex items-center gap-3">
-                  <CheckCircle2 className="text-brand-terracotta" size={20} />
+                  <CheckCircle2 className="text-brand-terracotta-light" size={20} />
                   <span>Személyre szabott technikák felár nélkül</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <CheckCircle2 className="text-brand-terracotta" size={20} />
+                  <CheckCircle2 className="text-brand-terracotta-light" size={20} />
                   <span>Dabas és környékén rugalmas egyeztetés</span>
                 </div>
               </div>
@@ -48,10 +48,10 @@ export const Pricing = () => {
                   className="flex justify-between items-center p-6 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/10 hover:bg-white/20 transition-all"
                 >
                   <div className="flex items-center gap-4">
-                    <Clock className="text-brand-terracotta" />
+                    <Clock className="text-brand-terracotta-light" />
                     <span className="text-xl font-bold">{item.duration}</span>
                   </div>
-                  <span className="text-2xl font-serif font-bold text-brand-terracotta">
+                  <span className="text-2xl font-serif font-bold text-brand-terracotta-light">
                     {item.price}
                   </span>
                 </article>

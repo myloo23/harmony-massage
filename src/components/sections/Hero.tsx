@@ -5,47 +5,50 @@ import { SITE_CONFIG } from "../../siteConfig";
 
 export const Hero = () => {
   return (
-    <section className="relative overflow-hidden pt-24 pb-14">
+    <section className="relative overflow-hidden pt-[4.5rem] pb-8 sm:pt-24 md:pb-14">
       <div className="absolute top-[-10%] right-[-10%] h-[50%] w-[50%] rounded-full bg-brand-terracotta/5 blur-3xl" />
       <div className="absolute bottom-[-10%] left-[-10%] h-[40%] w-[40%] rounded-full bg-brand-green/5 blur-3xl" />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6">
-        <div className="grid min-h-[calc(100svh-8rem)] items-center gap-10 md:grid-cols-2">
-          <div>
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-brand-terracotta/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-brand-ink">
+      <div className="relative z-10 mx-auto max-w-7xl pl-4 pr-8 sm:px-6">
+        <div className="grid items-start gap-5 md:min-h-[calc(100svh-8rem)] md:grid-cols-2 md:items-center md:gap-10">
+          <div className="min-w-0">
+            <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-brand-terracotta/10 px-3 py-1 text-[0.68rem] font-bold uppercase tracking-wider text-brand-ink sm:mb-6 sm:px-4 sm:py-1.5 sm:text-xs">
               <IconCheckCircle size={14} />
               <span>Masszázs Dabas és környékén</span>
             </div>
 
-            <h1 className="mb-6 font-serif text-4xl leading-[1.15] text-brand-ink sm:text-5xl md:text-6xl">
+            <h1 className="mb-3 max-w-full font-serif text-[1.75rem] leading-[1.08] text-brand-ink sm:mb-6 sm:text-5xl sm:leading-[1.12] md:text-6xl md:leading-[1.15]">
               Hát- és nyakfájás kezelése Dabason –{" "}
               <span className="text-brand-terracotta italic">érezhető javulás</span>{" "}
               már az <span className="text-brand-terracotta">első alkalom</span> után
             </h1>
 
-            <p className="mb-9 max-w-xl text-lg leading-relaxed text-brand-ink/70">
+            <p className="mb-4 max-w-full text-[0.82rem] leading-relaxed text-brand-ink/75 sm:mb-9 sm:max-w-xl sm:text-lg sm:text-brand-ink/70">
               Sport- és gyógymasszázs személyre szabva, 30-60-90 perces
               kezelésekkel. Online időpontfoglalás, gyors visszaigazolás.
             </p>
 
-            <div className="mb-8 flex flex-col gap-4 sm:flex-row">
+            <div className="mb-4 flex w-full flex-row items-center gap-2 sm:mb-8 sm:w-auto sm:justify-start sm:gap-4">
               <a
                 href="#booking"
-                className="flex items-center justify-center gap-2 rounded-full bg-brand-terracotta px-8 py-4 text-lg md:px-6 md:py-3 md:text-base font-bold text-white shadow-lg shadow-brand-terracotta/20 transition-transform hover:scale-[1.02]"
+                className="flex min-h-11 flex-1 items-center justify-center gap-1.5 rounded-full bg-brand-terracotta px-2 py-2.5 text-sm font-bold text-white shadow-lg shadow-brand-terracotta/20 transition-transform hover:scale-[1.02] sm:flex-none sm:gap-2 sm:px-8 sm:py-4 sm:text-lg md:px-6 md:py-3 md:text-base"
               >
-                Szabad időpontok megtekintése <IconArrowRight size={20} />
+                <span className="sm:hidden">Foglalás</span>
+                <span className="hidden sm:inline">Szabad időpontok megtekintése</span>
+                <IconArrowRight size={18} />
               </a>
               <a
                 href={SITE_CONFIG.phoneHref}
                 aria-label="Azonnali hívás indítása"
-                className="flex items-center justify-center gap-2 rounded-full border-2 border-brand-green/20 px-8 py-4 text-lg md:px-6 md:py-3 md:text-base font-bold text-brand-green transition-colors hover:bg-brand-green/5"
+                className="flex min-h-11 flex-1 items-center justify-center gap-1.5 rounded-full border-2 border-brand-green/20 px-2 py-2.5 text-sm font-bold text-brand-green transition-colors hover:bg-brand-green/5 sm:flex-none sm:gap-2 sm:px-8 sm:py-4 sm:text-lg md:px-6 md:py-3 md:text-base"
               >
-                <IconPhone size={20} />
-                Azonnali hívás
+                <IconPhone size={18} />
+                <span className="sm:hidden">Hívás</span>
+                <span className="hidden sm:inline">Azonnali hívás</span>
               </a>
             </div>
 
-            <div className="grid gap-3 sm:grid-cols-2">
+            <div className="hidden gap-3 sm:grid sm:grid-cols-2">
               {SITE_CONFIG.trustPoints.map((point) => (
                 <p
                   key={point}
@@ -58,8 +61,8 @@ export const Hero = () => {
             </div>
           </div>
 
-          <div className="relative">
-            <div className="relative z-10 aspect-4/5 overflow-hidden rounded-4xl shadow-2xl">
+          <div className="relative min-w-0">
+            <div className="relative z-10 aspect-[16/10] overflow-hidden rounded-2xl shadow-2xl sm:rounded-4xl md:aspect-4/5">
               <img
                 src={heroImg1080}
                 srcSet={`${heroImg720} 720w, ${heroImg1080} 1080w`}
@@ -75,30 +78,32 @@ export const Hero = () => {
               <div className="absolute inset-0 bg-linear-to-t from-brand-ink/45 to-transparent" />
             </div>
 
-            <div className="absolute -bottom-6 -left-6 z-20 max-w-[230px] rounded-2xl bg-white p-6 shadow-xl">
-              <p className="mb-1 text-xs uppercase tracking-wider text-brand-ink/80">
+            <div className="absolute bottom-3 left-3 z-20 max-w-[190px] rounded-xl bg-white p-3 shadow-xl sm:-bottom-6 sm:-left-6 sm:max-w-[230px] sm:rounded-2xl sm:p-6">
+              <p className="mb-0.5 text-[0.65rem] uppercase tracking-wider text-brand-ink/80 sm:mb-1 sm:text-xs">
                 Gyors kapcsolat
               </p>
               <a
                 href={SITE_CONFIG.phoneHref}
                 aria-label="Telefonos kapcsolat"
-                className="font-bold text-brand-green transition-colors hover:text-brand-terracotta"
+                className="text-sm font-bold text-brand-green transition-colors hover:text-brand-terracotta sm:text-base"
               >
                 {SITE_CONFIG.phoneDisplay}
               </a>
-              <p className="mt-2 text-xs text-brand-ink/70">
+              <p className="mt-1 hidden text-xs text-brand-ink/70 sm:block">
                 Hívjon most, ha gyors időpontot szeretne.
               </p>
             </div>
           </div>
         </div>
 
-        <div className="mt-10">
-          <div className="grid grid-cols-2 gap-4 rounded-2xl border border-brand-green/10 bg-white/90 p-4 backdrop-blur-sm md:grid-cols-4 md:p-5">
+        <div className="mt-7 sm:mt-10">
+          <div className="grid grid-cols-2 gap-2 rounded-2xl border border-brand-green/10 bg-white/90 p-3 backdrop-blur-sm sm:gap-4 sm:p-4 md:grid-cols-4 md:p-5">
             {SITE_CONFIG.proofStats.map((item) => (
               <div key={item.label} className="text-center">
-                <p className="text-xl font-serif text-brand-green md:text-2xl">{item.value}</p>
-                <p className="mt-1 text-xs uppercase tracking-wider text-brand-ink/65">
+                <p className="font-serif text-lg text-brand-green sm:text-xl md:text-2xl">
+                  {item.value}
+                </p>
+                <p className="mt-1 text-[0.65rem] uppercase tracking-wider text-brand-ink/65 sm:text-xs">
                   {item.label}
                 </p>
               </div>
@@ -109,4 +114,3 @@ export const Hero = () => {
     </section>
   );
 };
-

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import { ChevronDown } from "lucide-react";
 import { FAQS } from "../../constants";
 import { cn } from "../../lib/utils";
@@ -7,7 +6,6 @@ import { SITE_CONFIG } from "../../siteConfig";
 
 export const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
-  const prefersReducedMotion = useReducedMotion();
 
   return (
     <section id="faq" className="py-24 bg-white">
@@ -34,23 +32,13 @@ export const FAQ = () => {
                 />
               </button>
 
-              <AnimatePresence>
-                {openIndex === index && (
-                  <motion.div
-                    id={`faq-panel-${index}`}
-                    initial={prefersReducedMotion ? false : { height: 0, opacity: 0 }}
-                    animate={
-                      prefersReducedMotion
-                        ? { opacity: 1 }
-                        : { height: "auto", opacity: 1 }
-                    }
-                    exit={prefersReducedMotion ? { opacity: 0 } : { height: 0, opacity: 0 }}
-                    className="px-6 pb-6 text-brand-ink/75 text-sm leading-relaxed"
-                  >
-                    {faq.answer}
-                  </motion.div>
-                )}
-              </AnimatePresence>
+              <div
+                id={`faq-panel-${index}`}
+                hidden={openIndex !== index}
+                className="px-6 pb-6 text-brand-ink/75 text-sm leading-relaxed"
+              >
+                {faq.answer}
+              </div>
             </article>
           ))}
         </div>

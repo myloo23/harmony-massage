@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import { motion, useReducedMotion } from "motion/react";
 import { MapPin, Phone, Mail } from "lucide-react";
 import { SITE_CONFIG } from "../../siteConfig";
 
@@ -15,7 +14,6 @@ export const Booking = () => {
   const [shouldLoadWidget, setShouldLoadWidget] = useState(false);
   const [isScriptLoaded, setIsScriptLoaded] = useState(false);
   const sectionRef = useRef<HTMLElement | null>(null);
-  const prefersReducedMotion = useReducedMotion();
 
   useEffect(() => {
     const currentSection = sectionRef.current;
@@ -71,31 +69,20 @@ export const Booking = () => {
     <section id="booking" ref={sectionRef} className="py-24 bg-brand-cream">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="text-center mb-12 px-2">
-          <motion.h2
-            initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
-            whileInView={prefersReducedMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+          <h2
             className="text-4xl md:text-5xl font-serif mb-6 text-brand-ink"
           >
             Foglaljon időpontot online
-          </motion.h2>
-          <motion.p
-            initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
-            whileInView={prefersReducedMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
+          </h2>
+          <p
             className="text-brand-ink/70 max-w-2xl mx-auto text-lg leading-relaxed"
           >
             Válassz időpontot online, vagy hívj most, ha gyorsan szeretnél
             egyeztetni.
-          </motion.p>
+          </p>
         </div>
 
-        <motion.div
-          initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
-          whileInView={prefersReducedMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
+        <div
           className="max-w-[1000px] w-full mx-auto relative h-[650px] md:h-[700px] rounded-2xl overflow-hidden border border-brand-green/10 bg-white shadow-sm"
         >
           {!isScriptLoaded && (
@@ -118,7 +105,7 @@ export const Booking = () => {
               style={{ minWidth: "320px" }}
             />
           )}
-        </motion.div>
+        </div>
 
         <div className="mt-6 md:mt-12 grid sm:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
           <div className="flex items-center gap-4 p-5 md:p-6 bg-white rounded-2xl shadow-sm border border-brand-green/5">

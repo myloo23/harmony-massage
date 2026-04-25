@@ -1,11 +1,14 @@
 @import "tailwindcss";
+@source "../index.html";
+@source "./**/*.{ts,tsx}";
 
 @theme {
   --font-serif: "Playfair Display", Georgia, "Times New Roman", serif;
   --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
 
   --color-brand-cream: #fdfbf7;
-  --color-brand-terracotta: #c06c4d;
+  --color-brand-terracotta: #a94f33;
+  --color-brand-terracotta-light: #f2b79f;
   --color-brand-green: #3e4e3e;
   --color-brand-brown: #8b5e3c;
   --color-brand-ink: #2d2d2d;
@@ -14,6 +17,7 @@
 @layer base {
   body {
     @apply bg-brand-cream text-brand-ink font-sans antialiased;
+    overflow-x: hidden;
   }
 
   h1,

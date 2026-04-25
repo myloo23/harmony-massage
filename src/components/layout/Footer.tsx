@@ -8,7 +8,7 @@ export const Footer = () => {
         <div className="grid md:grid-cols-4 gap-12 mb-16">
           <div className="md:col-span-2">
             <a href="/" className="font-serif text-3xl font-bold tracking-tight mb-5 block">
-              Harmony<span className="text-brand-terracotta">Massage</span>
+              Harmony<span className="text-brand-terracotta-light">Massage</span>
             </a>
             <p className="text-white max-w-md mb-8 leading-relaxed">
               Professzionális sport- és gyógymasszázs Dabason. Célzott
@@ -45,22 +45,22 @@ export const Footer = () => {
             </h2>
             <ul className="space-y-3 text-white">
               <li>
-                <a href="#services" className="hover:text-brand-terracotta transition-colors">
+                <a href="#services" className="hover:text-brand-terracotta-light transition-colors">
                   Szolgáltatások
                 </a>
               </li>
               <li>
-                <a href="#pricing" className="hover:text-brand-terracotta transition-colors">
+                <a href="#pricing" className="hover:text-brand-terracotta-light transition-colors">
                   Árak
                 </a>
               </li>
               <li>
-                <a href="#about" className="hover:text-brand-terracotta transition-colors">
+                <a href="#about" className="hover:text-brand-terracotta-light transition-colors">
                   Rólam
                 </a>
               </li>
               <li>
-                <a href="#booking" className="hover:text-brand-terracotta transition-colors">
+                <a href="#booking" className="hover:text-brand-terracotta-light transition-colors">
                   Online foglalás
                 </a>
               </li>
@@ -73,18 +73,18 @@ export const Footer = () => {
             </h2>
             <ul className="space-y-4 text-white">
               <li className="flex items-start gap-3">
-                <MapPin size={18} className="text-brand-terracotta shrink-0 mt-0.5" />
+                <MapPin size={18} className="text-brand-terracotta-light shrink-0 mt-0.5" />
                 <span>{SITE_CONFIG.addressLabel}</span>
               </li>
               <li className="flex items-start gap-3">
-                <Phone size={18} className="text-brand-terracotta shrink-0 mt-0.5" />
-                <a href={SITE_CONFIG.phoneHref} aria-label="Telefonszám hívása" className="hover:text-brand-terracotta">
+                <Phone size={18} className="text-brand-terracotta-light shrink-0 mt-0.5" />
+                <a href={SITE_CONFIG.phoneHref} aria-label="Telefonszám hívása" className="hover:text-brand-terracotta-light">
                   {SITE_CONFIG.phoneDisplay}
                 </a>
               </li>
               <li className="flex items-start gap-3">
-                <Mail size={18} className="text-brand-terracotta shrink-0 mt-0.5" />
-                <a href={SITE_CONFIG.emailHref} aria-label="E-mail küldése" className="hover:text-brand-terracotta break-all">
+                <Mail size={18} className="text-brand-terracotta-light shrink-0 mt-0.5" />
+                <a href={SITE_CONFIG.emailHref} aria-label="E-mail küldése" className="hover:text-brand-terracotta-light break-all">
                   {SITE_CONFIG.email}
                 </a>
               </li>

@@ -1,10 +1,7 @@
-import { motion, useReducedMotion } from "motion/react";
 import { Star, Quote } from "lucide-react";
 import { TESTIMONIALS } from "../../constants";
 
 export const Testimonials = () => {
-  const prefersReducedMotion = useReducedMotion();
-
   return (
     <section className="py-24 bg-white border-t border-brand-green/5">
       <div className="max-w-7xl mx-auto px-6">
@@ -19,15 +16,9 @@ export const Testimonials = () => {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
-          {TESTIMONIALS.map((t, index) => (
-            <motion.article
+          {TESTIMONIALS.map((t) => (
+            <article
               key={t.name}
-              initial={prefersReducedMotion ? false : { opacity: 0, y: 30 }}
-              whileInView={
-                prefersReducedMotion ? { opacity: 1 } : { opacity: 1, y: 0 }
-              }
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.12 }}
               className="bg-brand-cream p-8 rounded-3xl shadow-sm border border-brand-green/8 flex flex-col h-full"
             >
               <Quote className="text-brand-terracotta/60 mb-4" size={24} />
@@ -47,7 +38,7 @@ export const Testimonials = () => {
                 </div>
                 <p className="font-bold text-sm text-brand-ink">{t.name}</p>
               </div>
-            </motion.article>
+            </article>
           ))}
         </div>
       </div>

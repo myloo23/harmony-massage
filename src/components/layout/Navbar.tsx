@@ -45,14 +45,14 @@ export const Navbar = () => {
     <>
       <nav
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 px-6 py-4 transition-all duration-300",
-          isScrolled ? "bg-brand-cream/95 py-3 shadow-sm backdrop-blur-md" : "bg-transparent",
+          "fixed top-0 left-0 right-0 z-50 px-4 py-3 transition-all duration-300 sm:px-6 sm:py-4",
+          isScrolled ? "bg-brand-cream/95 py-2.5 shadow-sm backdrop-blur-md sm:py-3" : "bg-transparent",
         )}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between">
           <a
             href="/"
-            className="font-serif text-2xl font-bold tracking-tight text-brand-green"
+            className="font-serif text-xl font-bold tracking-tight text-brand-green sm:text-2xl"
           >
             Harmony<span className="text-brand-terracotta">Massage</span>
           </a>
@@ -135,23 +135,23 @@ export const Navbar = () => {
 
       <div
         className={cn(
-          "fixed bottom-0 left-0 right-0 z-40 bg-linear-to-t from-brand-cream via-brand-cream/95 to-transparent p-4 pb-[calc(1rem+env(safe-area-inset-bottom))] transition-all duration-200 md:hidden",
+          "fixed bottom-0 left-0 right-0 z-40 bg-linear-to-t from-brand-cream via-brand-cream/95 to-transparent p-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] transition-all duration-200 sm:p-4 sm:pb-[calc(1rem+env(safe-area-inset-bottom))] md:hidden",
           showMobileStickyCTA
             ? "pointer-events-auto visible translate-y-0 opacity-100"
             : "pointer-events-none invisible translate-y-6 opacity-0",
         )}
       >
-        <div className="mx-auto grid max-w-md grid-cols-2 gap-3">
+        <div className="mx-auto grid max-w-md grid-cols-2 gap-2 sm:gap-3">
           <a
             href={SITE_CONFIG.phoneHref}
             aria-label="Hívás most"
-            className="block w-full rounded-full border border-brand-green/20 bg-white py-3 text-center font-semibold text-brand-green shadow-sm"
+            className="block w-full rounded-full border border-brand-green/20 bg-white py-2.5 text-center text-sm font-semibold text-brand-green shadow-sm sm:py-3 sm:text-base"
           >
             Hívás most
           </a>
           <a
             href="#booking"
-            className="block w-full rounded-full bg-brand-terracotta py-3 text-center font-bold text-white shadow-lg shadow-brand-terracotta/25"
+            className="block w-full rounded-full bg-brand-terracotta py-2.5 text-center text-sm font-bold text-white shadow-lg shadow-brand-terracotta/25 sm:py-3 sm:text-base"
           >
             Online foglalás
           </a>
