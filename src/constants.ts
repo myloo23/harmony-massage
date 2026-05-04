@@ -68,14 +68,39 @@ export const FAQS = [
       "Nem szükséges. Tiszta textíliát és minden szükséges eszközt biztosítunk. Önnek csak kényelmes ruházatra és pár nyugodt percre van szüksége.",
   },
   {
-    question: "Hogyan működik az otthoni masszázs?",
+    question: "Elérhető otthoni masszázs Dabason és környékén?",
     answer:
-      "Dabas és környékén otthoni kezelés is elérhető. A hordozható masszázságyat és az eszközöket visszük, Önnek csak egy nyugodt, jól fűthető helyet kell biztosítania.",
+      "Igen, Dabas és környékén otthoni kezelés is elérhető – Örkény, Ócsa, Kakucs, Alsónémedi és a Dabasi járás területén. A hordozható masszázságyat és az eszközöket visszük, Önnek csak egy nyugodt, jól fűthető helyet kell biztosítania.",
   },
   {
     question: "Kombinálhatók a technikák egy alkalmon belül?",
     answer:
-      "Igen. Az időtartamot választja ki, a kezelési technikákat pedig az aktuális panaszhoz igazítjuk, így valóban személyre szabott terápiát kap.",
+      "Igen. Az időtartamot választja ki, a kezelési technikákat (sport, svéd, fascia, köpölyözés) pedig az aktuális panaszhoz igazítjuk, így valóban személyre szabott terápiát kap – felár nélkül.",
+  },
+  {
+    question: "Mi a különbség a sportmasszázs és a gyógymasszázs között?",
+    answer:
+      "A sportmasszázs intenzívebb, elsősorban aktív embereknek és edzés utáni regenerációhoz ajánlott. A gyógymasszázs célzottabb terápiás kezelés, amely hátfájás, nyakfájás, derékfájás és krónikus izomfeszülés esetén hatékony. A két technika kombinálva is alkalmazható ugyanazon a kezelésen.",
+  },
+  {
+    question: "Hány alkalom után érezhető javulás hátfájásnál vagy nyakfájásnál?",
+    answer:
+      "Sok vendég már az első kezelés után érezhetően könnyebben mozog. Tartós javuláshoz – különösen krónikus hátfájás, nyakfájás vagy derékfájás esetén – általában 3–5 alkalom javasolt, lehetőleg heti rendszerességgel.",
+  },
+  {
+    question: "Milyen panaszokra ajánlott a masszázs?",
+    answer:
+      "Hátfájás, nyakfájás, derékfájás, vállövi feszülés, edzés utáni izomlázas állapot, irodai munka okozta tartáshibák, tenisz- és golfkönyök, általános stressz és fáradtság. A fascia terápia és köpölyözés mozgáskorlátozottság és letapadt szövetek esetén is hatékony.",
+  },
+  {
+    question: "Mikor nem javasolt a masszázs?",
+    answer:
+      "Láz, gyulladásos állapot, nyílt seb, trombózis, daganatos megbetegedés és terhesség bizonyos szakaszaiban kerüljük a masszázst. Bizonytalan esetben kérjen orvosi véleményt, és a kezelés előtt tájékoztassa terapeutáját az aktuális egészségi állapotáról.",
+  },
+  {
+    question: "Hogyan lehet időpontot foglalni?",
+    answer:
+      "Online foglaláshoz használja az oldalon lévő naptárat – az elérhető időpontok azonnal láthatók, visszaigazolás 1 órán belül érkezik. Gyors egyeztetéshez hívható a +36 70 512 8878-as szám is.",
   },
 ];
 

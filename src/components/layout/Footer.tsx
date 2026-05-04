@@ -40,9 +40,9 @@ export const Footer = () => {
           </div>
 
           <div>
-            <h2 className="font-bold mb-6 uppercase tracking-widest text-sm text-white">
+            <p className="font-bold mb-6 uppercase tracking-widest text-sm text-white">
               Gyors navigáció
-            </h2>
+            </p>
             <ul className="space-y-3 text-white">
               <li>
                 <a href="#services" className="hover:text-brand-terracotta-light transition-colors">
@@ -68,9 +68,9 @@ export const Footer = () => {
           </div>
 
           <div>
-            <h2 className="font-bold mb-6 uppercase tracking-widest text-sm text-white">
+            <p className="font-bold mb-6 uppercase tracking-widest text-sm text-white">
               Kapcsolat
-            </h2>
+            </p>
             <ul className="space-y-4 text-white">
               <li className="flex items-start gap-3">
                 <MapPin size={18} className="text-brand-terracotta-light shrink-0 mt-0.5" />

@@ -11,6 +11,7 @@ export const SITE_CONFIG = {
     "https://calendly.com/harmonymassagedabas?hide_gdpr_banner=1&primary_color=c06c4d",
   addressLabel: "Dabas és környéke (pontos cím egyeztetés után)",
   serviceAreaLabel: "Dabas és környéke",
+  nearbyTowns: ["Örkény", "Ócsa", "Kakucs", "Alsónémedi"],
   legal: {
     privacyPath: "/privacy-policy.html",
     termsPath: "/terms.html",
@@ -23,7 +24,7 @@ export const SITE_CONFIG = {
   ],
   proofStats: [
     { label: "Szakmai tapasztalat", value: "2+ év" },
-    { label: "Kezelt vendégek", value: "20+" },
+    { label: "Elérhető technika", value: "9 féle" },
     { label: "Háznál is elérhető", value: "Igen" },
     { label: "Átlagos válaszidő", value: "1 órán belül" },
   ],
